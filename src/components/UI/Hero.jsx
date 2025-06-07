@@ -91,7 +91,7 @@ const Hero = () => {
                   <CountUp start={0} end={86} duration={2} suffix='.6%'/>
                 </h2>
                 <h4  className=' text-smallTextColor font-[600] text-[18px]'>
-                  12<sup>th</sup> CBSE Board 
+                  12<sup>th</sup> STATE Board 
                 </h4>
               </div>
 
@@ -100,7 +100,7 @@ const Hero = () => {
                   <CountUp start={0} end={88} duration={2} suffix='.4%'/>
                 </h2>
                 <h4  className=' text-smallTextColor font-[600] text-[18px]'>
-                  10<sup>th</sup> CBSE Board
+                  10<sup>th</sup> STATE Board
                 </h4>
               </div>
 
