@@ -1,88 +1,108 @@
 import React from 'react'
 import awardsData from '../../assets/data/awards'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import { RiTrophyFill, RiExternalLinkLine } from 'react-icons/ri'; 
+
+// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules'; 
 
+// --- COLOR CONSTANTS ---
+const DARK_BG = '#2C2F33';          
+const ACCENT_BLUE = '#00BFFF';      
+const PRIMARY_TEXT = '#F0F0F0';     
+const SECONDARY_TEXT = '#B0B3B8';   
+const CARD_BG = '#1e2124';          
 
 const Achievements = () => {
   return (
-    <section id='achievements'>
+    // Apply dark background
+    <section id='achievements' className={`py-16 bg-[${DARK_BG}]`}>
         <div className='container'>
           
           {/* Heading */}
-          <div className='container lg:pt-5'>
+          <div className='mb-12'>
             <div className='text-center'>
-                <h2 className='text-headingColor font-[800] text-[2.4rem] mb-5 '>Achievements & Awards</h2>
-                <p className='lg:max-w-[600] lg:mx-auto text-headingColor font-[500] text-[16px] leading-7'>My Achievements and Awards shows the talent and multitasking nature of myself. I got various awards from different fields. </p>
+                <h2 className={`text-[${PRIMARY_TEXT}] font-[800] text-[2.5rem] mb-4 flex items-center justify-center gap-3`}>
+                    <RiTrophyFill className='text-yellow-400' />
+                    Achievements & Awards
+                </h2>
+                <p className={`lg:max-w-[700px] lg:mx-auto text-[${SECONDARY_TEXT}] font-[500] text-[1.1rem] leading-7`}>
+                    My achievements showcase my dedication, talent, and multitasking ability, highlighting recognition across various fields, both technical and professional. 
+                </p>
             </div>
           </div>
 
-          {/* Cards */}
+          {/* Cards Swiper */}
           <Swiper
-            spaceBetween={0}
-            centeredSlides={true}
+            spaceBetween={30} 
+            centeredSlides={false} 
             slidesPerView={1}
             loop={true}
             autoplay={{
-              delay: 2500,
+              delay: 3000, 
               disableOnInteraction: true,
             }}
             pagination={{
               clickable: true,
+              // FIX APPLIED: Using simple, non-hex-containing class names for Swiper
+              el: '.swiper-pagination-achievements', 
+              bulletClass: 'swiper-pagination-bullet achievements-bullet',
+              bulletActiveClass: 'swiper-pagination-bullet-active achievements-bullet-active',
             }}
-            // navigation={true}
             modules={[Autoplay, Pagination]}
             className="mySwiper"
             breakpoints={{
-                            640:{slidesPerView:1},
-                            735:{slidesPerView:2},
-                            1024:{slidesPerView:3}
-                            }}
+                640:{slidesPerView:1, spaceBetween: 20},
+                768:{slidesPerView:2, spaceBetween: 30},
+                1024:{slidesPerView:3, spaceBetween: 40}
+            }}
           >
-          <div className='flex flex-row justify-center'>
-            {
-                awardsData?.map((item, index) => (
-                  <SwiperSlide  className='mb-8 mt-4 ml-[0.4rem] flex justify-center mx-auto'>
-                    <div key={index} className=" max-w-xs mt-14 flex flex-col items-center rounded-md p-6 shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]
-                    hover:scale-105 hover:shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] ease-in duration-200">
+            <div className='flex flex-row justify-center'>
+                {
+                    awardsData?.map((item, index) => (
+                      <SwiperSlide key={index} className='mb-12 mt-4 p-2'> 
+                        <div 
+                            className={`min-h-[420px] max-w-sm flex flex-col items-center rounded-xl p-6 shadow-2xl
+                            bg-[${CARD_BG}] 
+                            hover:scale-[1.03] border border-transparent hover:border-[${ACCENT_BLUE}] transition-all duration-300`}>
 
-                    <div className="h-[180px]">
-                      <img className="w-full h-full " alt="abc" src={item?.imgUrl}></img>
-                    </div>
+                            {/* Image */}
+                            <div className="h-[180px] w-full flex items-center justify-center overflow-hidden">
+                              <img className="w-full h-full object-contain" alt={item?.title} src={item?.imgUrl}></img>
+                            </div>
 
+                            {/* Details */}
+                            <div className="flex flex-col px-1 mt-4 flex-grow w-full">
+                              <p className={`font-bold text-[${PRIMARY_TEXT}] text-lg mb-1`}>{item?.title}</p>
+                              <p className={`text-left text-sm text-[${SECONDARY_TEXT}] flex-grow leading-6`}>{item?.description}</p>
+                            </div>
 
-                    <div className="flex flex-col px-2 mt-2">
-                      <p className="font-bold text-slate-700">{item?.title}</p>
-                      <p className=" text-left text-xs  text-slate-500">{item?.description}</p>
-                    </div>
-
-
-                    <div className='w-full px-2 mt-2 flex justify-between'>
-                      <p className=' text-white bg-smallTextColor px-2  cursor-pointer rounded-md'>{item?.categoty}</p>
-                      <a href={item?.link}>
-                        <button
-                          className="rounded-md px-2
-                           text-white bg-primaryColor ease-in duration-150 focus:outline-none"
-                          >Link
-                        </button>
-                      </a>
-                    </div>
-                    </div>
-                  </SwiperSlide>
-                ))
-            }
-          </div>          
+                            {/* Footer & Button */}
+                            <div className='w-full px-1 mt-4 flex justify-between items-center'>
+                              <p className={`text-black bg-[${SECONDARY_TEXT}] px-3 py-1 text-sm cursor-default rounded-full`}>{item?.categoty}</p>
+                              
+                              <a href={item?.link} target="_blank" rel="noopener noreferrer">
+                                <button
+                                  className={`rounded-full px-4 py-1 text-black bg-[${ACCENT_BLUE}] hover:bg-opacity-90 transition duration-200 font-[600] flex items-center gap-1`}
+                                  >
+                                  Link <RiExternalLinkLine />
+                                </button>
+                              </a>
+                            </div>
+                        </div>
+                      </SwiperSlide>
+                    ))
+                }
+            </div> 
           </Swiper>
-
+          
+          {/* Custom Pagination Container (Swiper will inject bullets here) */}
+          <div className='swiper-pagination-achievements mt-8 flex justify-center'></div>
         </div>
     </section>
   )
 }
 
 export default Achievements
-
-

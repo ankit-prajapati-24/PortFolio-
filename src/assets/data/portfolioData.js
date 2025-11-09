@@ -1,13 +1,16 @@
-import portfolioImg01 from "../images/portfolio-01.jpeg";
+import portfolioImg01 from "../images/lovelyrics.png";
 import portfolioImg10 from "../images/ninja-notes.jpeg";
 import portfolioImg02 from "../images/portfolio-02.jpg";
 import portfolioImg03 from "../images/portfolio-03.jpg";
 import portfolioImg04 from "../images/portfolio-04.jpg";
-import portfolioImg05 from "../images/portfolio-05.jpg";
+import portfolioImg05 from "../images/weatherapp.png";
 import portfolioImg06 from "../images/portfolio-06.jpg";
 import portfolioImg07 from "../images/portfolio-07.jpg";
 import portfolioImg08 from "../images/portfolio-08.jpg";
-import portfolioImg09 from "../images/quickPay.jpg";
+import portfolioImg09 from "../images/quizkpay.png";
+import portfolio  from '../images/portfolio.png'
+import chatapp  from '../images/chatapp.png'
+import magicslide  from '../images/magicslide.png'
 
 const portfolios = [
   {
@@ -22,7 +25,7 @@ const portfolios = [
   },
   {
     id: "02",
-    imgUrl: "https://th.bing.com/th/id/OIP.TaAdrJPEXZzkj4yBlBzLSAHaFj?rs=1&pid=ImgDetMain",
+    imgUrl: chatapp,
     category: "MERN Stack",
     title: "Chat App",
     description:
@@ -30,15 +33,15 @@ const portfolios = [
     technologies: ["React", "Socket.io", "Node.js", "MongoDB"],
     siteUrl: "https://chatapp-sand.vercel.app/",
   },
-  {
-    id: "03",
-    imgUrl: "https://th.bing.com/th/id/OIP.BEVYrM6YIsIMcFxB15dV-QHaEK?rs=1&pid=ImgDetMain",
-    category: "Web Development",
-    title: "Clinic Appointment Booking App",
-    description:"A full-stack Clinic Appointment Booking App enabling patients to book, reschedule, and manage appointments seamlessly while allowing doctors to manage their schedules efficiently.",
-    technologies: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-    siteUrl: "https://clinic-app-eight.vercel.app/",
-},
+//   {
+//     id: "03",
+//     imgUrl: "https://th.bing.com/th/id/OIP.BEVYrM6YIsIMcFxB15dV-QHaEK?rs=1&pid=ImgDetMain",
+//     category: "Web Development",
+//     title: "Clinic Appointment Booking App",
+//     description:"A full-stack Clinic Appointment Booking App enabling patients to book, reschedule, and manage appointments seamlessly while allowing doctors to manage their schedules efficiently.",
+//     technologies: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+//     siteUrl: "https://clinic-app-eight.vercel.app/",
+// },
 {
   id: "12",
   imgUrl: portfolioImg09, // Replace with the correct image
@@ -53,7 +56,7 @@ const portfolios = [
 ,
   {
     id: "05",
-    imgUrl: "https://th.bing.com/th/id/OIP.kFNNlvXBK-qmoXIBF5zIcwHaFm?w=1400&h=1058&rs=1&pid=ImgDetMain",
+    imgUrl: portfolio,
     category: "Web Development",
     title: "Portfolio Website",
     description:
@@ -74,7 +77,7 @@ const portfolios = [
   },
   {
     id: "08",
-    imgUrl: "https://th.bing.com/th/id/OIP.ZkJHhsGMbwTAjT8rlzsQ9wHaEK?rs=1&pid=ImgDetMain", // You can replace this with the correct image
+    imgUrl: magicslide,
     category: "Game Development",
     title: "Magic Slide",
     description:

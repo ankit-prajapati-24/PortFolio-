@@ -11,7 +11,10 @@ import Achievements from "./components/UI/Achievements";
 
 function App() {
   useEffect(() => {
-    Aos.init();
+    Aos.init({
+      duration: 1500,
+      once: true,
+    });
   }, []);
 
   return<>
