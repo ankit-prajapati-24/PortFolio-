@@ -21,16 +21,16 @@ const Header = () => {
         });  
     };
 
-    const handleClick = e => {
-        e.preventDefault();
-        const targetAttr = e.target.getAttribute('href');
-        const location = document.querySelector(targetAttr).offsetTop;
+    // const handleClick = e => {
+    //     e.preventDefault();
+    //     const targetAttr = e.target.getAttribute('href');
+    //     const location = document.querySelector(targetAttr).offsetTop;
 
-        window.scrollTo({
-            top: location - 80,
-            left: 0
-        });
-    };
+    //     window.scrollTo({
+    //         top: location - 80,
+    //         left: 0
+    //     });
+    // };
 
     useEffect(() => {
         stickyHeaderFunc();
